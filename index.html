@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure P2P Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Secure P2P Chat</h1>
+        <div id="usernameSection">
+            <label for="ownUsername">Your Username:</label>
+            <input type="text" id="ownUsername" placeholder="Enter your username (alphanumeric, 1-20 chars)">
+            <button id="setUsername">Set Username</button>
+        </div>
+        <div id="ownInfo" style="display: none;">
+            <p>Your Peer ID: <span id="peerIdSpan"></span> (Share this with others out-of-band)</p>
+        </div>
+        <div id="connectionSection" style="display: none;">
+            <label for="targetUsername">Target Username:</label>
+            <input type="text" id="targetUsername" placeholder="Enter target username">
+            <label for="targetPeerId">Target Peer ID:</label>
+            <input type="number" id="targetPeerId" min="1" max="100" placeholder="Enter exact target Peer ID (no range search in serverless mode)">
+            <button id="initiateConnect">Initiate Connection</button>
+        </div>
+        <div id="offerSection" style="display: none;">
+            <p>Share this exact string with the target user (via copy-paste or out-of-band):</p>
+            <textarea id="offerText" readonly rows="6" cols="80"></textarea>
+            <br>
+            <button id="copyOffer">Copy Offer</button>
+        </div>
+        <div id="pasteSection">
+            <p>Paste the received connection string here to connect:</p>
+            <textarea id="pasteText" placeholder="Paste offer or answer string here..." rows="6" cols="80"></textarea>
+            <br>
+            <button id="handlePaste">Connect</button>
+            <br>
+            <button id="copyAnswer" style="display: none;">Copy Answer</button>
+        </div>
+        <div id="status"></div>
+        <div id="chatSection" style="display: none;">
+            <p id="connectionInfo"></p>
+            <div id="chatLog"></div>
+            <input type="text" id="msgInput" placeholder="Type your message...">
+            <button id="sendMsg">Send</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
